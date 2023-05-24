@@ -47,6 +47,7 @@ void insertAtTail(Node* &tail,int d) {
     tail = temp;
     temp->next = NULL;
 }
+
 int main(){
     Node* Node1 = new Node(10);
     Node* head = Node1;
@@ -56,6 +57,8 @@ int main(){
     insertAtHead(head, 11);
     print(head);
     insertAtHead(head, 12);
+    print(head);
+    insertAthead(head, 21);
     print(head);
     insertAtTail(tail,25);
     print(head);
