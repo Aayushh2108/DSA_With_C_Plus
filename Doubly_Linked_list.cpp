@@ -71,7 +71,7 @@ void insertAtPosition(Node* &tail,Node* &head,int position,int d){
 
     Node* temp = head;
     int cnt =1;
-    if(cnt < position-1){
+    while(cnt < position-1){
         temp=temp->next;
         cnt++;
     }
@@ -117,7 +117,7 @@ int main(){
     cout<< "tail"<< tail->data<< endl;
 
     
-    insertAtPosition(tail , head,4,5);
+    insertAtPosition(tail , head,5,5);
     print(head);
     
     cout<<"head"<<head->data<< endl;
