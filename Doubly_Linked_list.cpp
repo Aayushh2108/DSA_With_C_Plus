@@ -12,6 +12,16 @@ class Node{
         this->prev=NULL;
         this->next=NULL;
     }
+    ~Node(){
+       int val = this ->data;
+        if(next !=NULL){
+            delete next;
+            next = NULL;
+        }
+        cout<<"memory free for node with data"<< val <<endl;
+    }
+
+
 };
 // Traversing the Linked List
 void print(Node* head){
@@ -89,6 +99,34 @@ void insertAtPosition(Node* &tail,Node* &head,int position,int d){
 
 
 }
+void deleteNode(int position, Node* &head){
+   
+//    deleting first or start node
+    if(position==1){
+        Node* temp = head;
+        temp->next->prev=NULL;
+        head = temp ->next;
+        temp->next= NULL;
+        delete temp;
+    }
+    else{
+        // Deleting mid or last node
+        Node* curr = head;
+        Node* prev = NULL;
+
+        int cnt = 1;
+        while(cnt <= position-1){
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        curr->prev =NULL;
+        prev->next = curr->next;
+        curr->next=NULL;
+        delete curr;
+
+    }
+}
 int main(){
 
     Node* head = NULL;
@@ -117,9 +155,13 @@ int main(){
     cout<< "tail"<< tail->data<< endl;
 
     
-    insertAtPosition(tail , head,5,5);
+    insertAtPosition(tail , head,4,5);
     print(head);
     
+    cout<<"head"<<head->data<< endl;
+    cout<< "tail"<< tail->data<< endl;
+
+    deleteNode(2,head);
     cout<<"head"<<head->data<< endl;
     cout<< "tail"<< tail->data<< endl;
 
