@@ -2,7 +2,7 @@
 using namespace std;
 
 //Linked list Node
-struct Nod 
+struct Node
 {
     int data;//data
     struct Node *next;//pointer
