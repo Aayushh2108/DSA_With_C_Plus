@@ -7,7 +7,7 @@ int power(){
 
     int ans = 1;
     for(int i = 1; i<=b; i++){
-        ans = ans * a
+        ans = ans * a;
     }
     return ans;
 }
